@@ -21,7 +21,7 @@ from ideas import views as ideas_views
 
 ideas_patterns = [
     # path("create/", ideas_views.create_view, name="create"),
-    # path("update/<slug:slug>/", ideas_views.update_view, name="update"),
+    # path("idea/<slug:slug>/", ideas_views.detail_view, name="detail"),
     path("", ideas_views.home, name="home")
 ]
 

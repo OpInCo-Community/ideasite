@@ -4,11 +4,12 @@ from core.models import TimeStampedModel
 # Create your models here.
 from django.template.defaultfilters import slugify
 from django.utils.crypto import get_random_string
+from ckeditor.fields import RichTextField
 
 
 class Idea(TimeStampedModel):
     title = models.CharField(max_length=256)
-    description = models.TextField(default="", blank=True)
+    description = RichTextField(default="", blank=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.DO_NOTHING)
     slug = models.SlugField(default="", blank=True)
 

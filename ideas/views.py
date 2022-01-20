@@ -9,13 +9,13 @@ from ideas.filters import IdeaFilter
 @login_required()
 def home(request):
     ideaform = IdeaForm()
-    ideas = Idea.objects.all()
+    ideas = Idea.objects.order_by('-created_on')
     f = IdeaFilter(request.GET, queryset=ideas)
-    print(f.form)
     if request.method == "POST":
         ideaform = IdeaForm(request.POST)
 
         if ideaform.is_valid():
+            print(ideaform.cleaned_data)
             idea = ideaform.save(commit=False)
             idea.author = request.user
             idea.save()
@@ -31,6 +31,6 @@ def home(request):
 #
 #     return render(request, "ideas/create.html")
 #
-# def update_view(request, slug):
+# def detail_view(request, slug):
 #     print(slug)
-#     return render(request, "ideas/update.html")
+#     return render(request, "ideas/detail.html")

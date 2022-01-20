@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_forms_materialize',
     'django_filters',
+    'ckeditor',
     'core',
     'ideas',
 ]
@@ -139,4 +140,8 @@ LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "login"
 
 CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
+# CRISPY_TEMPLATE_PACK = 'bootstrap'
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
 

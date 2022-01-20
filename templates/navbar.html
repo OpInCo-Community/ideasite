@@ -1,0 +1,23 @@
+<nav class="black" style="padding: 0 1.5rem;">
+    <div class="nav-wrapper" >
+      <a href="#" class="">OpInCo</a>
+      <ul id="nav-mobile" class="right">
+
+          {% if user.is_authenticated %}
+              <li>Welcome, {{ request.user.username }}</li>
+              <!-- Dropdown Trigger -->
+              <li><a class='dropdown-trigger btn black' href='#' data-target='dropdown1'><i class="material-icons">person_outline</i></a></li>
+               <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#">Profile</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/logout/">Logout</a></li>
+              </ul>
+          {% else %}
+              <li><a href="/login/">Login</a></li>
+          {% endif %}
+
+      </ul>
+    </div>
+  </nav>
+

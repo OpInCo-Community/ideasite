@@ -28,9 +28,20 @@
 
       </div>
 
+    <div class="row">
+        <div class="col s12 l8">
+           {% for idea in ideas %}
+                    {% include "ideas/components/card.html" with title=idea.title description=idea.description %}
+            {% endfor %}
+        </div>
+
+        <div class="col s12 l4">
+            Filters
+        </div>
+    </div>
+
      <button data-target="modal1" class="btn-floating btn-large waves-effect waves-light red modal-trigger" id="new-idea__btn"><i class="material-icons">add</i></button>
 
-    <h1>Hello</h1>
 {% endblock %}
 
 {% block scripts %}

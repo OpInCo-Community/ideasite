@@ -3,12 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from ideas.forms import IdeaForm
+from ideas.models import Idea
 
 # Create your views here.
 @login_required()
 def home(request):
     ideaform = IdeaForm()
-
+    ideas = Idea.objects.all()
     if request.method == "POST":
         ideaform = IdeaForm(request.POST)
 
@@ -22,7 +23,7 @@ def home(request):
             messages.add_message(request, messages.ERROR, 'There was a problem while posting idea')
 
 
-    return render(request, "ideas/home.html", { 'ideaform': ideaform })
+    return render(request, "ideas/home.html", { 'ideaform': ideaform, "ideas": ideas })
 
 # def create_view(request):
 #

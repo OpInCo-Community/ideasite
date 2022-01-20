@@ -18,11 +18,11 @@
         min-height: 100vh;
     }
 </style>
-<body>
+<body class="grey lighten-5">
 
      {% include 'navbar.html' %}
 
-    <div class="container" id="main-container">
+    <div class="container" id="main-container" style="padding: 24px;">
         {% block content %}
         {% endblock %}
     </div>

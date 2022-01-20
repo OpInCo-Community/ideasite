@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
 
 from ideas import views as ideas_views
-
+from core import views as core_views
 ideas_patterns = [
     # path("create/", ideas_views.create_view, name="create"),
     # path("idea/<slug:slug>/", ideas_views.detail_view, name="detail"),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("login/", LoginView.as_view(), name="login"),
     path("logout/", LogoutView.as_view(next_page="/"), name="logout"),
+    path("profile/", core_views.profile, name="profile"),
     path("", include((ideas_patterns, 'ideas')))
 ]
 

@@ -15,7 +15,7 @@ def home(request):
         ideaform = IdeaForm(request.POST)
 
         if ideaform.is_valid():
-            print(ideaform.cleaned_data)
+
             idea = ideaform.save(commit=False)
             idea.author = request.user
             idea.save()

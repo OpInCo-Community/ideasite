@@ -3,7 +3,7 @@
     <div class="modal-content">
       <h4 class="red-text text-lighten-1">{{ idea.title }}</h4>
         <p class="grey-text text-darken-3"><b>Author: </b> {{  idea.author.username }}</p>
-        <div class="" style="display: flex; align-items: center;">{{ 10 }}<i class="material-icons red-text">favorite</i></div>
+        <div class="" style="display: flex; align-items: center;">{{ idea.likes }}<i class="material-icons red-text">favorite</i></div>
       <p class="flow-text">{{ idea.description|safe }}</p>
 {#        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dignissimos, dolorem enim facilis maxime numquam sed sequi sint suscipit voluptatem. Animi dicta distinctio, odio quo quos recusandae repellendus repudiandae tempora!</p>#}
     </div>

@@ -22,7 +22,9 @@ from core import views as core_views
 ideas_patterns = [
     # path("create/", ideas_views.create_view, name="create"),
     # path("idea/<slug:slug>/", ideas_views.detail_view, name="detail"),
-    path("", ideas_views.home, name="home")
+    path("idea/like/<int:idea_pk>", ideas_views.like, name="like"),
+    path("", ideas_views.home, name="home"),
+
 ]
 
 urlpatterns = [

@@ -61,8 +61,14 @@
 
         <div class="col s12 l8">
            {% for idea in filter.qs %}
-                    {% include "ideas/components/card.html" with idea=idea %}
+                {% if idea.pk in likes_array %}
+                    {% include "ideas/components/card.html" with idea=idea liked=True %}
                     {% include "ideas/components/ideaModal.html" with idea=idea %}
+                {% else %}
+                    {% include "ideas/components/card.html" with idea=idea liked=False %}
+                    {% include "ideas/components/ideaModal.html" with idea=idea %}
+               {% endif %}
+
 
             {% endfor %}
         </div>
@@ -71,7 +77,7 @@
 
     </div>
 
-     <button data-target="modal1" class="btn-floating btn-large waves-effect waves-light red modal-trigger" id="new-idea__btn"><i class="material-icons">add</i></button>
+     <button data-target="modal1" class="btn-floating btn-large waves-effect waves-light teal modal-trigger" id="new-idea__btn"><i class="material-icons">add</i></button>
 
 {% endblock %}
 

@@ -10,6 +10,10 @@ class TimeStampedModel(models.Model):
 
 class User(AbstractUser):
     bio = models.TextField(max_length=500, blank=True, default="")
+    email = models.EmailField(unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.username

@@ -1,9 +1,43 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block title %}
-    OpInCo Idea Site Home
+
 {% endblock %}
 
 {% block content %}
+    <style>
+        #new-idea__btn{
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+        }
+    </style>
+
+       <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <form class="modal-content" method="POST">
+          <h4>Add a new idea</h4>
+{#          <p>A bunch of text</p>#}
+                {% csrf_token %}
+                {{ ideaform|crispy }}
+
+            <div class="modal-footer">
+                <input class="waves-effect waves-red btn-flat" type="submit" value="create">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+             </div>
+        </form>
+
+      </div>
+
+     <button data-target="modal1" class="btn-floating btn-large waves-effect waves-light red modal-trigger" id="new-idea__btn"><i class="material-icons">add</i></button>
+
     <h1>Hello</h1>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+      $(document).ready(function(){
+        $('.modal').modal();
+  });
+    </script>
 {% endblock %}

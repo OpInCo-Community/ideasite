@@ -1,3 +1,4 @@
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +38,25 @@
 
 <script>
       $('.dropdown-trigger').dropdown();
+
+      {% if messages %}
+              {% for message in messages %}
+                  {% if message.tags %}
+                      {% if message.tags == 'success' %}
+                          M.toast({html: '{{message}}', inDuration: 300, outDuration: 375, length: 2000, classes: 'green accent-4'})
+                      {% endif %}
+                       {% if message.tags == 'warning' or message.tags == "info"%}
+                          M.toast({html: '{{message}}', inDuration: 300, outDuration: 375, length: 2000, classes: 'black'})
+                      {% endif %}
+                       {% if message.tags == 'error' %}
+                          M.toast({html: '{{message}}', inDuration: 300, outDuration: 375, length: 2000, classes: 'red'})
+                      {% endif %}
+                  {% else %}
+                      M.toast({html: '{{message}}', inDuration: 300, outDuration: 375, length: 2000, classes: 'black'})
+                  {% endif %}
+
+              {% endfor %}
+          {% endif %}
 </script>
 
 {% block scripts %}

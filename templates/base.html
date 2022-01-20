@@ -39,6 +39,12 @@
 <script>
       $('.dropdown-trigger').dropdown();
 
+      $(document).ready(function() {
+            $('select').formSelect();
+            // Old way
+            // $('select').material_select();
+        });
+
       {% if messages %}
               {% for message in messages %}
                   {% if message.tags %}

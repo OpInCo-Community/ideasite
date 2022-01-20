@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'materialize',
     'crispy_forms',
     'crispy_forms_materialize',
+    'django_filters',
     'core',
     'ideas',
 ]

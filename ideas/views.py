@@ -4,12 +4,14 @@ from django.contrib import messages
 
 from ideas.forms import IdeaForm
 from ideas.models import Idea
-
+from ideas.filters import IdeaFilter
 # Create your views here.
 @login_required()
 def home(request):
     ideaform = IdeaForm()
     ideas = Idea.objects.all()
+    f = IdeaFilter(request.GET, queryset=ideas)
+    print(f.form)
     if request.method == "POST":
         ideaform = IdeaForm(request.POST)
 
@@ -23,7 +25,7 @@ def home(request):
             messages.add_message(request, messages.ERROR, 'There was a problem while posting idea')
 
 
-    return render(request, "ideas/home.html", { 'ideaform': ideaform, "ideas": ideas })
+    return render(request, "ideas/home.html", { 'ideaform': ideaform, "ideas": ideas, "filter": f })
 
 # def create_view(request):
 #

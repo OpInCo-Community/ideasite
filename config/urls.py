@@ -20,8 +20,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from ideas import views as ideas_views
 
 ideas_patterns = [
-    path("create/", ideas_views.create_view, name="create"),
-    path("update/<slug:slug>/", ideas_views.update_view, name="update"),
+    # path("create/", ideas_views.create_view, name="create"),
+    # path("update/<slug:slug>/", ideas_views.update_view, name="update"),
     path("", ideas_views.home, name="home")
 ]
 

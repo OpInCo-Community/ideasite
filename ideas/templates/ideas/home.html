@@ -16,13 +16,12 @@
        <!-- Modal Structure -->
       <div id="modal1" class="modal">
         <form class="modal-content" method="POST">
-          <h4>Add a new idea</h4>
-{#          <p>A bunch of text</p>#}
+          <h4>Post your idea</h4>
                 {% csrf_token %}
                 {{ ideaform|crispy }}
-
+                <p><b>NOTE: </b>You cannot edit the idea once posted.</p>
             <div class="modal-footer">
-                <input class="waves-effect waves-red btn-flat" type="submit" value="create">
+                <input class="waves-effect waves-red btn-flat" type="submit" value="Post">
                 <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
              </div>
         </form>

@@ -12,14 +12,21 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
+<style>
+    #main-container{
+        min-height: 100vh;
+    }
+</style>
 <body>
 
      {% include 'navbar.html' %}
 
-    <div class="container">
+    <div class="container" id="main-container">
         {% block content %}
         {% endblock %}
     </div>
+
+    {% include 'footer.html' %}
 
 
 </body>

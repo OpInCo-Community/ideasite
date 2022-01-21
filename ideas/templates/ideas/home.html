@@ -69,6 +69,12 @@
                     {% include "ideas/components/ideaModal.html" with idea=idea %}
                {% endif %}
 
+               {% empty %}
+
+                    <div class="center-align teal-text"">
+                        <i class="material-icons large">do_not_disturb</i>
+                        <h3>404 IDEAS NOT FOUND!</h3>
+                    </div>
 
             {% endfor %}
         </div>

@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-phph02hk2oh6uz@#)l5l_-ydg3=x#4k%zairwc@wk2mq9g_#$7'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-phph02hk2oh6uz@#)l5l_-ydg3=x#4k%zairwc@wk2mq9g_#$7')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = []
+HOSTS = os.environ.get('ALLOWED_HOSTS', '*,')
+ALLOWED_HOSTS = HOSTS.split(',')
 
 
 # Application definition
@@ -123,7 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
@@ -144,4 +146,5 @@ CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
-
+# Activate Django-Heroku.
+django_heroku.settings(locals())
